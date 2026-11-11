@@ -1,7 +1,7 @@
 # MazeRunner leaderboard & registration
 
 Live: **https://maze.hheylau.workers.dev**
-
+.
 The service that shows the MazeRunner leaderboard and handles account registration.
 Rebuilt from the old Express + MySQL deployment on Vercel and now runs on
 **Cloudflare Workers** with a **D1** (SQLite) database.
