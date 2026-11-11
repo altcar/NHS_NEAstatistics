@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a MazeRunner account to appear on the leaderboard.">
+  <title>Register · MazeRunner</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/register.js" defer></script>
+  <style>
+    @font-face {
+      font-family: "CustomFont";
+      src: url("https://static.itch.io/fonts/04b03.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    .register-main {
+      display: grid;
+      place-items: center;
+      padding-top: 2rem;
+    }
+
+    .card {
+      width: min(460px, 100%);
+      padding: 2.1rem 1.6rem 1.8rem;
+      border-radius: 32px;
+      background: linear-gradient(160deg, #0aa6dd, #0086b8);
+      box-shadow: 18px 18px 38px rgba(0, 76, 108, 0.38), -14px -14px 32px rgba(120, 230, 255, 0.28);
+    }
+
+    .card h1 {
+      margin: 0 0 0.2rem;
+      font-family: "CustomFont", "Segoe UI", sans-serif;
+      font-size: clamp(2rem, 8vw, 2.6rem);
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      text-shadow: 0 4px 0 rgba(0, 62, 89, 0.35);
+    }
+
+    .card .lead {
+      margin: 0 0 1.6rem;
+      color: #e3f8ff;
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .field label {
+      display: block;
+      margin: 0 0 0.35rem 0.35rem;
+      color: #eafaff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .field input {
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem;
+      border: 0;
+      border-radius: 16px;
+      color: #10334a;
+      background: linear-gradient(180deg, #f4fdff, #d9f1fb);
+      box-shadow: inset 0 2px 5px rgba(0, 57, 82, 0.22);
+      font: inherit;
+      font-size: 1rem;
+      transition: box-shadow 160ms ease, background-color 160ms ease;
+    }
+
+    .field input::placeholder {
+      color: #6b93a6;
+    }
+
+    .field input:focus {
+      outline: 3px solid rgba(255, 236, 130, 0.85);
+      outline-offset: 1px;
+      background: #ffffff;
+    }
+
+    .hint {
+      margin: 0.4rem 0 0 0.35rem;
+      color: #c9f0ff;
+      font-size: 0.72rem;
+    }
+
+    .error {
+      display: none;
+      margin: 1rem 0 0;
+      padding: 0.7rem 0.9rem;
+      border-radius: 12px;
+      color: #5c0b0b;
+      background: #ffd7d7;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    .error.visible {
+      display: block;
+    }
+
+    button[type="submit"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      height: 50px;
+      margin-top: 0.6rem;
+      border: 0;
+      border-radius: 999px;
+      color: #063244;
+      background: linear-gradient(180deg, #ffe86a, #ffc61a);
+      box-shadow: 0 6px 0 #c68f00;
+      font: inherit;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: transform 100ms ease, box-shadow 100ms ease, filter 120ms ease;
+    }
+
+    button[type="submit"]:hover {
+      filter: brightness(1.05);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #c68f00;
+    }
+
+    button[type="submit"]:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    button[type="submit"]:disabled {
+      cursor: progress;
+      filter: saturate(0.35);
+      transform: none;
+    }
+
+    .back {
+      margin: 1.1rem 0 0;
+      color: #d9f6ff;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .back a {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/pivot">Maze<span>Runner</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/pivot">Leaderboard</a>
+      <a href="/cross">Statistics</a>
+      <a href="/register" aria-current="page">Register</a>
+    </nav>
+  </header>
+
+  <main class="register-main">
+    <section class="card" aria-labelledby="register-title">
+      <h1 id="register-title">Maze Runner<br>Account Register</h1>
+      <p class="lead">Create an account, then log in from the game to upload your scores.</p>
+
+      <form id="register-form" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" maxlength="20" autocomplete="username"
+                 spellcheck="false" autocapitalize="none" placeholder="mazerunner" required>
+          <p class="hint">1–20 letters or numbers. Shown on the leaderboard.</p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="254" autocomplete="email"
+                 spellcheck="false" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" minlength="8" maxlength="128"
+                 autocomplete="new-password" placeholder="At least 8 characters" required>
+          <p class="hint">At least 8 characters with an uppercase letter, a lowercase letter and a number.</p>
+        </div>
+
+        <p class="error" id="error" role="alert" aria-live="polite"></p>
+
+        <button type="submit" id="submit">Create account</button>
+      </form>
+
+      <p class="back">Already registered? <a href="/pivot">Back to the leaderboard</a></p>
+    </section>
+  </main>
+</body>
+</html>

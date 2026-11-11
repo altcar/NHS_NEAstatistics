@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MazeRunner level statistics - best scores, fastest times and averages.">
+  <title>Statistics · MazeRunner</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-page="stats">
+  <header class="site-header">
+    <a class="brand" href="/pivot">Maze<span>Runner</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/pivot">Leaderboard</a>
+      <a href="/cross" aria-current="page">Statistics</a>
+      <a href="/register">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Level statistics</h1>
+    <p class="subtitle">Records and averages across every level that has been played.</p>
+
+    <div class="table-wrapper">
+      <table id="stats">
+        <caption>Statistics for each level</caption>
+        <thead>
+          <tr>
+            <th scope="col">Level</th>
+            <th scope="col">Best score</th>
+            <th scope="col">Player</th>
+            <th scope="col">Best time</th>
+            <th scope="col">Player</th>
+            <th scope="col">Players</th>
+            <th scope="col">Average score</th>
+            <th scope="col">Average time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="empty" colspan="8">Loading statistics…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="footer">See the full per-player grid on the <a href="/pivot">leaderboard</a>.</p>
+  </main>
+</body>
+</html>

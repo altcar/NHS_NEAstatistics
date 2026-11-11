@@ -1,21 +1,22 @@
 {
-  "name": "nhs_neastatistics",
-  "version": "1.0.0",
-  "description": "https://maze.onrender.com/pivot",
-  "main": "index.js",
-  "engines": {
-    "node": "20.x"
-  },
+  "name": "nhs-ne-astatistics",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MazeRunner leaderboard and registration service on Cloudflare Workers",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply mazerunner-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply mazerunner-db --remote",
+    "db:console:local": "wrangler d1 execute mazerunner-db --local --command=\"SELECT * FROM Player\""
   },
-  "author": "",
+  "engines": {
+    "node": ">=20"
+  },
   "license": "ISC",
-  "dependencies": {
-    "dot-env": "^0.0.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mysql2": "^3.11.3"
+  "devDependencies": {
+    "wrangler": "^4.160.0"
   }
 }

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /$
+Allow: /pivot
+Allow: /cross
+Allow: /register
+Disallow: /getData
+Disallow: /registerData
+Disallow: /api/

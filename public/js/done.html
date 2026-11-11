@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account created · MazeRunner</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .done-card {
+      width: min(480px, 100%);
+      margin: 3rem auto 0;
+      padding: 2.5rem 1.6rem;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 26px 60px rgba(7, 27, 51, 0.28);
+      text-align: center;
+    }
+
+    .tick {
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.2rem;
+      border-radius: 50%;
+      color: #fff;
+      background: #2f9e78;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .done-card h1 {
+      margin: 0 0 0.75rem;
+      color: var(--ink);
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      text-shadow: none;
+    }
+
+    .done-card p {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .done-card .button {
+      display: inline-block;
+      padding: 0.75rem 1.3rem;
+      border-radius: 999px;
+      color: #fff;
+      background: #1f6fc4;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .done-card .button:hover {
+      background: #185a9f;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/pivot">Maze<span>Runner</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/pivot">Leaderboard</a>
+      <a href="/cross">Statistics</a>
+      <a href="/register">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="done-card">
+      <div class="tick" aria-hidden="true">✓</div>
+      <h1>Account created</h1>
+      <p>Thank you! You can close this browser tab and return to the game to log in.</p>
+      <a class="button" href="/pivot">View the leaderboard</a>
+    </section>
+  </main>
+</body>
+</html>
