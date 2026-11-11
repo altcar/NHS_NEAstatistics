@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "nhs-ne-astatistics",
+  "name": "maze",
   "main": "src/index.js",
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat"],

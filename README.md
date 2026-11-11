@@ -1,6 +1,6 @@
 # MazeRunner leaderboard & registration
 
-Live: **https://nhs-ne-astatistics.hheylau.workers.dev**
+Live: **https://maze.hheylau.workers.dev**
 
 The service that shows the MazeRunner leaderboard and handles account registration.
 Rebuilt from the old Express + MySQL deployment on Vercel and now runs on
@@ -46,8 +46,8 @@ npm run db:migrate:remote   # apply migrations to the production D1 database
 npm run deploy              # wrangler deploy
 ```
 
-The Worker name is `nhs-ne-astatistics`, so it deploys to
-`nhs-ne-astatistics.<your-subdomain>.workers.dev`. The D1 database is
+The Worker name is `maze`, so it deploys to
+`maze.<your-subdomain>.workers.dev`. The D1 database is
 `mazerunner-db` and is bound as `DB` in `wrangler.jsonc`.
 
 ## Submitting scores from the game
@@ -61,7 +61,7 @@ wrangler secret put SCORE_API_KEY
 Then submit a finished run:
 
 ```bash
-curl -X POST https://nhs-ne-astatistics.hheylau.workers.dev/api/score \
+curl -X POST https://maze.hheylau.workers.dev/api/score \
   -H "content-type: application/json" \
   -H "x-api-key: $SCORE_API_KEY" \
   -d '{"playerID":1,"levelID":6,"score":120,"time":84.5}'
@@ -76,6 +76,16 @@ supported here. Update `CsharpREST.cs` in the game to call `/api/score`.
 
 - `migrations/0001_init.sql` — `Player`, `Level`, `Progress`
 - `migrations/0002_seed_levels.sql` — original level labels
+
+### Demo data
+
+The live board is seeded with three fake players (`novarunner`, `echofox`,
+`blazejade`). Re-seed or remove them with:
+
+```bash
+npx wrangler d1 execute mazerunner-db --remote --file=scripts/demo-data.sql
+npx wrangler d1 execute mazerunner-db --remote --file=scripts/remove-demo-data.sql
+```
 
 Useful commands:
 
